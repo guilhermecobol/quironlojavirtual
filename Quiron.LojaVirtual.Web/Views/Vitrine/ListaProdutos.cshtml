@@ -1,0 +1,71 @@
+﻿@using Quiron.LojaVirtual.Web.HtmlHelpers
+@model Quiron.LojaVirtual.Web.Models.ProdutosViewModel
+
+
+
+
+@foreach (var p in Model.Produtos)
+{
+    @Html.Partial("ProdutoDetalhes",p)
+
+    @*<div class="well">
+        <h3></h3>
+        <h3> <strong>@p.ProdutoNome</strong></h3>
+        <h3> <span class="pull-right label label-primary">@p.ProdutoPreco.ToString("C")</span></h3>
+        <h3><span class="lead">@p.ProdutoDescricao</span> </h3>
+    </div>*@
+}
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))
+</div>
+
+@*@{
+        ViewBag.Title = "ListaProdutos";
+    }
+
+    <h2>ListaProdutos</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoDescricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoPreco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoCategoria)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdutoNome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdutoDescricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdutoPreco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProdutoCategoria)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProdutoId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProdutoId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProdutoId })
+                </td>
+            </tr>
+        }
+
+    </table>*@
